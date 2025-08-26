@@ -134,7 +134,7 @@ The global expense management software market is valued at $4.2B+ and growing 11
 
 ## 🔗 **Links & Resources**
 
-- **Live Demo**: [https://your-vercel-url.vercel.app](https://flow-ai-pay.vercel.app)
+- **Live Demo**: [https://flow-ai-pay.vercel.app](https://flow-ai-pay.vercel.app/)
 - **GitHub Repository**: [https://github.com/yazzy01/Flow-AI-Pay](https://github.com/yazzy01/Flow-AI-Pay)
 - **Development Process**: See attached screenshots and commit history
 
@@ -148,7 +148,7 @@ This case study showcases all three Lunim Innovation Studio core themes in a coh
 
 ---
 
-**Submitted by**: Yassir  
+**Submitted by**: Yassir Rzigui
 **Date**: August 26, 2025  
 **Development Time**: ~7 hours  
 **Technologies Used**: React, TypeScript, Gemini AI, Wagmi, Vercel
