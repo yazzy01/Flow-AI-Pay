@@ -4,7 +4,7 @@ FlowPay is a modern expense management platform that combines Human-Centric Desi
 
 ## 🚀 Live Demo
 
-**(https://flow-ai-pay.vercel.app/)**
+**https://flow-ai-pay.vercel.app**
 
 ## ✨ Features
 
