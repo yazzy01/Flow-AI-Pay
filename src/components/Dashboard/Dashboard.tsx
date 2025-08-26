@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ChatInterface } from '../AI/ChatInterface'
 import { Button } from '../ui/button'
 import { Web3Payments } from './Web3Payments'
@@ -10,14 +10,22 @@ import { EditExpenseModal } from '@/components/Expense/EditExpenseModal'
 import { DataManagementModal } from '@/components/Settings/DataManagementModal'
 import { Plus, BarChart3, Settings, X, Edit, Trash2, MoreVertical, Search, Download } from 'lucide-react'
 
-export const Dashboard: React.FC = () => {
+interface DashboardProps {
+  globalSearchTerm?: string;
+  onSearchChange?: (term: string) => void;
+}
+
+export const Dashboard: React.FC<DashboardProps> = ({ 
+  globalSearchTerm = '',
+  onSearchChange 
+}) => {
   const [showExpenseForm, setShowExpenseForm] = useState(false)
   const [activeTab, setActiveTab] = useState('overview')
   const [showAnalytics, setShowAnalytics] = useState(false)
   const [showEditModal, setShowEditModal] = useState(false)
   const [showDataManagement, setShowDataManagement] = useState(false)
   const [editingExpense, setEditingExpense] = useState(null)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState(globalSearchTerm)
   const [statusFilter, setStatusFilter] = useState('all')
   const [expenseFormData, setExpenseFormData] = useState({
     vendor: '',
@@ -44,6 +52,16 @@ export const Dashboard: React.FC = () => {
   
   const stats = getExpenseStats()
   const recentExpenses = getRecentExpenses(5)
+
+  // Sync search terms between header and dashboard
+  useEffect(() => {
+    setSearchTerm(globalSearchTerm)
+  }, [globalSearchTerm])
+
+  const handleSearchChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm)
+    onSearchChange?.(newSearchTerm)
+  }
 
   // Filter expenses based on search and status
   const filteredExpenses = expenses.filter(expense => {
@@ -403,7 +421,7 @@ export const Dashboard: React.FC = () => {
                       type="text" 
                       placeholder="Search expenses..."
                       value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
+                      onChange={(e) => handleSearchChange(e.target.value)}
                       className="w-full sm:w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>

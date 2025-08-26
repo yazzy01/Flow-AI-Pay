@@ -275,3 +275,4 @@ export const AnalyticsModal: React.FC<AnalyticsModalProps> = ({
     </AnimatePresence>
   );
 };
+
