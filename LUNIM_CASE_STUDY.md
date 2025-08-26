@@ -148,7 +148,7 @@ This case study showcases all three Lunim Innovation Studio core themes in a coh
 
 ---
 
-**Submitted by**: Yassir Rzigui
+**Submitted by**: Yassir Rzigui  
 **Date**: August 26, 2025  
 **Development Time**: ~7 hours  
 **Technologies Used**: React, TypeScript, Gemini AI, Wagmi, Vercel
